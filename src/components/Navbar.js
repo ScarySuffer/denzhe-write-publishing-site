@@ -3,7 +3,6 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './styles/Navbar.css';
-import { useLayoutEffect } from 'react';
 
 export default function Navbar() {
   const navigate = useNavigate();
