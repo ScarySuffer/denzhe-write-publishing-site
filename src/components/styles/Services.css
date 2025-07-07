@@ -1,0 +1,61 @@
+.services {
+  background: #fff;
+  color: #222;
+  padding: 40px 20px;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.06);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.services h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #222;
+}
+
+.service-package {
+  margin-bottom: 40px;
+}
+
+.service-package h3 {
+  color: #ff6600; /* Changed from blue to accent orange */
+  margin-bottom: 10px;
+}
+
+.service-package p {
+  margin-bottom: 12px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.service-package ul {
+  margin-left: 20px;
+  margin-bottom: 15px;
+  color: #444;
+  list-style-type: disc;
+}
+
+/* Dark mode styles */
+body.dark-mode .services {
+  background: #1e1e1e;
+  color: #eee;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.03);
+}
+
+body.dark-mode .services h2 {
+  color: #fff;
+}
+
+body.dark-mode .service-package h3 {
+  color: #ffa347; /* Lighter orange for dark background */
+}
+
+body.dark-mode .service-package p,
+body.dark-mode .service-package ul {
+  color: #ccc;
+}

@@ -1,0 +1,54 @@
+/* About.css */
+
+section.about {
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+.about {
+  padding: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #fff;
+  color: #222;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.about h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.about p,
+.about ul {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.about ul li {
+  margin-bottom: 8px;
+}
+
+/* Dark mode overrides */
+body.dark-mode .about {
+  background-color: #1a1a1a;
+  color: #eee;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .about h2 {
+  color: #fff;
+}
+
+body.dark-mode .about p,
+body.dark-mode .about ul {
+  color: #ccc;
+}
+
+body.dark-mode .about ul li {
+  color: #bbb;
+}

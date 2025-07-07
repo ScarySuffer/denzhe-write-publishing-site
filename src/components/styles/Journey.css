@@ -1,0 +1,93 @@
+/* Keyframes for heartbeat */
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.3);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.2);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+/* Journey container */
+.journey {
+  background: #fff;
+  color: #222;
+  padding: 50px 25px;
+  border-radius: 12px;
+  margin-bottom: 40px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition: background 0.4s ease, color 0.4s ease, box-shadow 0.3s ease;
+}
+
+/* Heading */
+.journey h2 {
+  color: #222;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+/* Stepper list */
+.journey ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.journey ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 1.5rem;
+}
+
+/* Icon circle with heartbeat animation */
+.journey ul li .icon {
+  flex-shrink: 0;
+  background-color: #ff6600;
+  color: white;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  animation: heartbeat 1.8s infinite;
+  animation-timing-function: ease-in-out;
+}
+
+/* Step text */
+.journey ul li p {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Dark mode support */
+body.dark-mode .journey {
+  background: #1e1e1e;
+  color: #eee;
+  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .journey h2 {
+  color: #f2f2f2;
+}
+
+body.dark-mode .journey ul li .icon {
+  background-color: #ffd700;
+  color: #222;
+}

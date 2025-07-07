@@ -1,0 +1,47 @@
+/* Light mode */
+body.light-mode .financial-plan {
+  padding: 2rem;
+  background-color: #fefefe;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  color: #444;
+}
+
+body.light-mode .financial-plan h2 {
+  color: #333;
+}
+
+body.light-mode .financial-plan ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+
+body.light-mode .financial-plan li {
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+/* Dark mode */
+body.dark-mode .financial-plan {
+  padding: 2rem;
+  background-color: #1a1a1a;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+  border-radius: 8px;
+  color: #ddd;
+}
+
+body.dark-mode .financial-plan h2 {
+  color: #eee;
+}
+
+body.dark-mode .financial-plan ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+
+body.dark-mode .financial-plan li {
+  margin-bottom: 0.5rem;
+  color: #ccc;
+}

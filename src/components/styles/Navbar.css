@@ -1,0 +1,348 @@
+/* Base navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #333333;
+  padding: 0 1rem;
+  height: 60px;
+  color: white;
+  position: relative;
+  z-index: 1001;
+}
+
+/* Nav links as buttons */
+.nav-links li a {
+  color: #222;
+  font-weight: 500;
+  padding: 8px 16px;
+  background-color: #eee7e7;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: inline-block;
+  user-select: none;
+}
+
+/* Hover and focus effect */
+.nav-links li a:hover,
+.nav-links li a:focus {
+  background-color: #ccc;
+  color: #571414;
+  text-decoration: none;
+  outline: none;
+  box-shadow: 0 0 5px rgba(87, 20, 20, 0.7);
+}
+
+/* Active link highlight */
+.nav-links li a.active {
+  background-color: #ffd700;
+  color: #333;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 0 8px #ffd700;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 28px;
+  height: 22px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1100; /* Ensure it's above sidebar */
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Sidebar styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Hidden off screen */
+  width: 250px;
+  height: 100vh;
+  background: #333333;
+  padding-top: 60px; /* space for navbar */
+  transition: left 0.3s ease;
+  z-index: 1000;
+  overflow-y: auto; /* Scroll if content overflows */
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  margin: 1rem 0;
+  padding-left: 1rem;
+}
+
+.sidebar ul li a {
+  color: #ffa500;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+  display: block;
+  user-select: none;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a:focus {
+  color: #bbb;
+  text-decoration: underline;
+  outline-offset: 2px;
+  outline: 2px solid #451d1d;
+  border-radius: 4px;
+}
+
+/* Dark mode toggle button */
+.dark-mode-toggle {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  user-select: none;
+  align-self: flex-start;
+  margin: 1rem 1rem 2rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode-toggle:hover,
+.dark-mode-toggle:focus {
+  background-color: rgba(255, 255, 255, 0.15);
+  outline: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* Light and dark mode body */
+body.light-mode {
+  background-color: #fefefe;
+  color: #333;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #eee;
+}
+
+/* Navbar theme */
+body.light-mode .navbar {
+  background: #333333;
+  color: white;
+}
+
+body.dark-mode .navbar {
+  background: #222;
+  color: #eee;
+}
+
+/* Nav and toggle colors in dark mode */
+body.dark-mode .nav-links li a,
+body.dark-mode .sidebar ul li a,
+body.dark-mode .dark-mode-toggle {
+  color: #eee;
+  border-color: #eee;
+}
+
+body.dark-mode .nav-links li a:hover,
+body.dark-mode .sidebar ul li a:hover,
+body.dark-mode .nav-links li a:focus,
+body.dark-mode .sidebar ul li a:focus {
+  color: #aaddff;
+  text-decoration: underline;
+  outline-color: #aaddff;
+}
+
+/* Sidebar theme in dark mode */
+body.dark-mode .sidebar {
+  background: #222;
+}
+
+body.dark-mode .hamburger span {
+  background: #eee;
+}
+
+body.light-mode .dark-mode-toggle {
+  border-color: white;
+  color: white;
+}
+
+body.dark-mode .dark-mode-toggle {
+  border-color: #eee;
+  color: #eee;
+}
+
+/* Custom sidebar */
+.custom-sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 220px;
+  height: 100vh;
+  background-color: #333333;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  transition: left 0.3s ease;
+  z-index: 1050;
+  overflow-y: auto;
+}
+
+.custom-sidebar.open {
+  left: 0;
+}
+
+.custom-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.custom-sidebar ul li {
+  margin: 20px 0;
+}
+
+.custom-sidebar ul li a {
+  color: rgb(118, 75, 75);
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-decoration: none;
+  display: block;
+  padding: 8px 16px;
+  border-radius: 6px;
+  user-select: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.custom-sidebar ul li a:hover,
+.custom-sidebar ul li a:focus {
+  text-decoration: underline;
+  background-color: rgba(255, 255, 255, 0.1);
+  outline: none;
+}
+
+/* Backdrop */
+.sidebar-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1049;
+  cursor: pointer;
+}
+
+@media (min-width: 992px) {
+  .custom-sidebar,
+  .sidebar-backdrop {
+    display: none;
+  }
+}
+
+/* Sidebar toggle in mobile */
+.sidebar-toggle-theme {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.sidebar-toggle-theme:hover,
+.sidebar-toggle-theme:focus {
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
+}
+
+body.dark-mode .custom-sidebar {
+  background-color: #222;
+}
+
+body.dark-mode .sidebar-toggle-theme {
+  border-color: #eee;
+  color: #eee;
+}
+
+body.light-mode .sidebar-toggle-theme {
+  border-color: white;
+  color: white;
+}
+.custom-sidebar {
+  transition: transform 0.3s ease;
+  transform: translateX(-100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16rem;
+  height: 100vh;
+  z-index: 1040;
+  overflow-y: auto;
+}
+
+.custom-sidebar.open {
+  transform: translateX(0);
+}
+
+/* On larger screens show sidebar always */
+@media (min-width: 992px) {
+  .custom-sidebar {
+    position: static;
+    transform: none !important;
+    height: auto;
+    width: auto;
+  }
+}

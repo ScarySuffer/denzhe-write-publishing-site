@@ -1,0 +1,119 @@
+/* Home.css */
+
+/* General page layout */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fefefe;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Section spacing */
+.hero,
+.about,
+.services,
+.journey,
+.contact {
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Hero */
+.hero {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.hero-text {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 30px 25px;
+  border-radius: 12px;
+  max-width: 700px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.4rem;
+  margin-bottom: 30px;
+}
+
+.cta-btn {
+  background-color: #ff6600;
+  color: white;
+  padding: 14px 32px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(255, 102, 0, 0.5);
+  transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover,
+.cta-btn:focus {
+  background-color: #cc5200;
+  box-shadow: 0 6px 12px rgba(204, 82, 0, 0.7);
+  outline: none;
+}
+
+/* About, Services, Journey, Contact: Basic styling */
+
+.about, .services, .journey, .contact {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  margin-bottom: 50px;
+  padding: 40px 30px;
+}
+
+.about h2,
+.services h2,
+.journey h2,
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  text-align: center;
+  color: #222;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  .hero p {
+    font-size: 1.1rem;
+  }
+  .cta-btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+  .about, .services, .journey, .contact {
+    padding: 30px 15px;
+  }
+}
+/* Start sections hidden and slightly translated down */
+section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* When visible, fully opaque and in place */
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

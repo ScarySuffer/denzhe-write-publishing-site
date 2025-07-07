@@ -1,0 +1,31 @@
+/* PageBackgrounds.css */
+
+.CA-BG {
+  background: linear-gradient(to right, #e0f7fa, #e1bee7);
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.TA-BG {
+  background: linear-gradient(to left, #fff3e0, #fce4ec);
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.MK-BG {
+  background: linear-gradient(to right, #ede7f6, #e8f5e9);
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.FP-BG {
+  background: linear-gradient(to right, #fbe9e7, #ede7f6);
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.JY-BG {
+  background: linear-gradient(to left, #e3f2fd, #f1f8e9);
+  min-height: 100vh;
+  padding: 2rem;
+}

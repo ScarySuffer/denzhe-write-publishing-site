@@ -1,0 +1,52 @@
+.hero {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* changed from center */
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  padding-top: 60px; /* add some top padding */
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;            /* cover area, maintain aspect ratio */
+  filter: brightness(0.6);      /* darken image slightly for text contrast */
+  z-index: 0;
+  transition: filter 0.3s ease; /* smooth filter change on hover/focus if desired */
+}
+
+.hero-text {
+  margin-top: 40px; /* add some space from top */
+  background: rgba(0, 0, 0, 0.6);
+  padding: 30px 25px;
+  border-radius: 12px;
+  max-width: 700px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.cta-btn {
+  margin-top: 25px;
+  padding: 14px 32px;
+  background-color: #ff6600;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(255, 102, 0, 0.5);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-btn:hover,
+.cta-btn:focus {
+  background-color: #cc5200;
+  box-shadow: 0 6px 12px rgba(204, 82, 0, 0.7);
+  outline: none;
+}

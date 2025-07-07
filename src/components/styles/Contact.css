@@ -1,0 +1,39 @@
+/* Light mode */
+body.light-mode .contact {
+  background: #fff;
+  padding: 40px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  color: #333;
+}
+
+body.light-mode .contact a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 16px;
+  background: #25D366;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* Dark mode */
+body.dark-mode .contact {
+  background: #222;
+  padding: 40px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+  color: #eee;
+}
+
+body.dark-mode .contact a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 16px;
+  background: #128C7E; /* Slightly darker WhatsApp green */
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+}
