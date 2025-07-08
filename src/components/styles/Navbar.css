@@ -1,4 +1,4 @@
-/* === NAVBAR === */
+/* === NAVBAR === */ 
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -9,6 +9,33 @@
   color: rgb(17, 11, 11);
   position: relative;
   z-index: 1001;
+}
+
+/* Sticky navbar on desktop only */
+@media (min-width: 992px) {
+  .navbar {
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Increase logo size and add borders */
+.navbar-brand {
+  font-size: 1.8rem;       /* bigger text */
+  font-weight: 700;
+  padding: 8px 16px;
+  border: 2px solid #ffdb4d; /* golden border */
+  border-radius: 8px;
+  color: #ffdb4d !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+  background-color: #ffdb4d;
+  color: #222 !important;
+  text-decoration: none;
 }
 
 /* === HAMBURGER MENU === */
@@ -108,7 +135,7 @@
   border: none;
   color: #ffa500;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 0.9rem;      /* slightly decreased from 0.95rem */
   padding: 8px 16px;
   width: 100%;
   text-align: left;
@@ -126,6 +153,18 @@
   background-color: rgba(255, 255, 255, 0.1);
   color: #fff;
   outline: none;
+}
+
+/* Sidebar logo container */
+.custom-sidebar .sidebar-logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffdb4d;
+  padding: 0 16px 24px 16px;
+  border-bottom: 2px solid #ffdb4d;
+  margin-bottom: 20px;
+  user-select: none;
+  cursor: pointer;  /* clickable */
 }
 
 /* Desktop nav buttons with icons */
@@ -154,6 +193,20 @@
 
   .hamburger {
     display: flex;
+  }
+
+  /* Reset navbar position on mobile */
+  .navbar {
+    position: relative;
+    box-shadow: none;
+  }
+
+  /* Smaller logo on mobile */
+  .navbar-brand {
+    font-size: 1.4rem;
+    border: none;
+    padding: 0;
+    color: white !important;
   }
 }
 

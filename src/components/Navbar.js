@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from 'react'; 
 import { useNavigate, useLocation } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
@@ -29,10 +29,16 @@ export default function Navbar() {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
           <button
-            className="navbar-brand btn btn-link text-white fw-bold"
+            className="navbar-brand btn btn-link text-white fw-bold d-flex align-items-center"
             onClick={() => navigate('/')}
             aria-label="Navigate to Home"
+            type="button"
           >
+            <img
+              src="/assets/DWS-Logo.png"
+              alt="Denzhewrites Logo"
+              style={{ width: '40px', height: '40px', marginRight: '8px' }}
+            />
             Denzhewrites
           </button>
 
@@ -73,6 +79,29 @@ export default function Navbar() {
         aria-hidden={!sidebarOpen}
         aria-label="Mobile navigation sidebar"
       >
+        {/* Sidebar logo with image */}
+        <div
+          className="sidebar-logo d-flex align-items-center"
+          onClick={() => { navigate('/'); closeSidebar(); }}
+          tabIndex={0}
+          role="button"
+          aria-label="Navigate to Home"
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              navigate('/');
+              closeSidebar();
+            }
+          }}
+          style={{ cursor: 'pointer', gap: '8px' }}
+        >
+          <img
+            src="/assets/DWS-Logo.png"
+            alt="Denzhewrites Logo"
+            style={{ width: '30px', height: '30px' }}
+          />
+          <span>Denzhewrites</span>
+        </div>
+
         <ul>
           {navItems.map(([label, path, icon]) => (
             <li key={path}>

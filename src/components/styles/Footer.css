@@ -1,19 +1,149 @@
-/* Light mode footer */
-body.light-mode footer {
-  background: #f1f1f1;
+/* General page layout */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fefefe;
   color: #333;
-  text-align: center;
-  padding: 20px 10px;
-  margin-top: 40px;
-  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+  line-height: 1.6;
 }
 
-/* Dark mode footer */
-body.dark-mode footer {
-  background: #111;
-  color: #fff;
+/* Section spacing */
+.hero,
+.about,
+.services,
+.journey,
+.contact {
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Hero section */
+.hero {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 20px 10px;
-  margin-top: 40px;
-  box-shadow: 0 -2px 5px rgba(255,255,255,0.1);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Use actual image with styling */
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(60%);
+}
+
+/* Overlayed text on image */
+.hero-text {
+  background: rgba(0, 0, 0, 0.65);
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 700px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.4rem;
+  margin-bottom: 30px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.cta-btn {
+  background-color: #ff6600;
+  color: #fff;
+  padding: 14px 36px;
+  font-weight: 700;
+  font-size: 1.25rem;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(255, 102, 0, 0.6);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.cta-btn:hover,
+.cta-btn:focus {
+  background-color: #cc5200;
+  box-shadow: 0 6px 14px rgba(204, 82, 0, 0.8);
+  outline: none;
+  cursor: pointer;
+}
+
+/* Other section styling */
+.about,
+.services,
+.journey,
+.contact {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 50px;
+  padding: 40px 30px;
+}
+
+.about h2,
+.services h2,
+.journey h2,
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  text-align: center;
+  color: #222;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    height: 60vh;
+    padding: 40px 20px;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  .cta-btn {
+    padding: 12px 28px;
+    font-size: 1.1rem;
+  }
+
+  .about,
+  .services,
+  .journey,
+  .contact {
+    padding: 30px 20px;
+  }
+}
+
+/* Section animation */
+section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
