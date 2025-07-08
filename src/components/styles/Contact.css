@@ -1,39 +1,53 @@
-/* Light mode */
-body.light-mode .contact {
-  background: #fff;
-  padding: 40px 20px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-  color: #333;
+.contact {
+  background: #1b1b1b !important; /* very dark background */
+  padding: 40px 24px !important;
+  border-radius: 12px !important;
+  margin-bottom: 24px !important;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.08) !important;
+  color: #eee !important; /* very light text for visibility */
+  font-weight: 500 !important;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-body.light-mode .contact a {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 16px;
-  background: #25D366;
-  color: white;
-  border-radius: 5px;
-  font-weight: bold;
+/* Make headings inside .contact visible */
+.contact h1,
+.contact h2,
+.contact h3,
+.contact h4,
+.contact h5,
+.contact h6 {
+  color: #eee !important;
+  margin-bottom: 1rem !important;
 }
 
-/* Dark mode */
-body.dark-mode .contact {
-  background: #222;
-  padding: 40px 20px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  box-shadow: 0 0 10px rgba(255,255,255,0.1);
-  color: #eee;
+/* Paragraphs and other text */
+.contact p,
+.contact span,
+.contact label {
+  color: #ddd !important;
 }
 
-body.dark-mode .contact a {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 16px;
-  background: #128C7E; /* Slightly darker WhatsApp green */
-  color: white;
-  border-radius: 5px;
-  font-weight: bold;
+/* The call-to-action link/button */
+.contact a {
+  display: inline-block !important;
+  margin-top: 14px !important;
+  padding: 12px 20px !important;
+  background: #0f7764 !important; /* deep teal */
+  color: #fafafa !important;
+  border-radius: 8px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  box-shadow: 0 4px 12px rgba(15, 119, 100, 0.6) !important;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none !important;
+  user-select: none;
+  cursor: pointer;
+}
+
+.contact a:hover,
+.contact a:focus {
+  background: #10a082 !important; /* brighter teal on hover */
+  box-shadow: 0 6px 20px rgba(16, 160, 130, 0.85) !important;
+  outline: none !important;
 }

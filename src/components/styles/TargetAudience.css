@@ -1,43 +1,35 @@
-:root {
-  --box-bg: #fff;
-  --text-color: #333;
-  --shadow-color: rgba(0, 0, 0, 0.05);
-}
-
-body.dark-mode {
-  --box-bg: #1a1a1a;
-  --text-color: #ddd;
-  --shadow-color: rgba(255, 255, 255, 0.05);
-}
-
 .target-audience {
-  background: var(--box-bg);
-  color: var(--text-color);
-  padding: 40px 20px;
-  margin-bottom: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 12px var(--shadow-color);
-  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  background: #1a1a1a !important; /* dark background */
+  color: #ddd !important;          /* light text */
+  padding: 40px 20px !important;
+  margin-bottom: 30px !important;
+  border-radius: 10px !important;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.05) !important; /* subtle white glow */
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease !important;
 }
 
 .target-audience h2 {
-  text-align: center;
-  margin-bottom: 25px;
-  font-size: 1.8rem;
-  font-weight: 600;
+  text-align: center !important;
+  margin-bottom: 25px !important;
+  font-size: 1.8rem !important;
+  font-weight: 600 !important;
+  color: #eee !important;
 }
 
 .target-audience p {
-  margin-bottom: 10px;
-  line-height: 1.6;
+  margin-bottom: 10px !important;
+  line-height: 1.6 !important;
+  color: #ccc !important;
 }
 
 .target-audience ul {
-  list-style: disc;
-  padding-left: 1.5rem;
-  margin-top: 10px;
+  list-style: disc !important;
+  padding-left: 1.5rem !important;
+  margin-top: 10px !important;
+  color: #bbb !important;
 }
 
 .target-audience ul li {
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.6rem !important;
+  color: #bbb !important;
 }

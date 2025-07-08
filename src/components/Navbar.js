@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
@@ -7,21 +7,8 @@ import './styles/Navbar.css';
 export default function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
-
-  const [darkMode, setDarkMode] = useState(() => {
-    const saved = localStorage.getItem('darkMode');
-    return saved !== null ? JSON.parse(saved) : window.matchMedia('(prefers-color-scheme: dark)').matches;
-  });
-
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  useEffect(() => {
-    document.body.classList.toggle('dark-mode', darkMode);
-    document.body.classList.toggle('light-mode', !darkMode);
-    localStorage.setItem('darkMode', JSON.stringify(darkMode));
-  }, [darkMode]);
-
-  const toggleDarkMode = () => setDarkMode(prev => !prev);
   const toggleSidebar = () => setSidebarOpen(prev => !prev);
   const closeSidebar = () => setSidebarOpen(false);
   const handleNavigate = (path) => {
@@ -30,118 +17,88 @@ export default function Navbar() {
   };
 
   const navItems = [
-    ['Home', '/'],
-    ['About', '/about'],
-    ['Services', '/services'],
-    ['Journey', '/journey'],
-    ['Audience', '/target-audience'],
-    ['Marketing', '/marketing'],
-    ['Advantage', '/competitive-advantage'],
-    ['Finance', '/financial-plan'],
-    ['Contact', '/contact'],
+    ['Home', '/', 'bi-house-door-fill'],
+    ['About', '/about', 'bi-info-circle-fill'],
+    ['Services', '/services', 'bi-briefcase-fill'],
+    ['Journey', '/journey', 'bi-map-fill'],
+    ['Contact', '/contact', 'bi-envelope-fill'],
   ];
 
   return (
     <>
-      <nav
-        className={`navbar navbar-expand-lg ${darkMode ? 'navbar-dark bg-dark border-bottom border-body' : 'navbar-light bg-primary'}`}
-        data-bs-theme={darkMode ? 'dark' : 'light'}
-      >
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
           <button
-            className="navbar-brand fw-bold btn btn-link p-0 m-0 text-decoration-none"
+            className="navbar-brand btn btn-link text-white fw-bold"
             onClick={() => navigate('/')}
             aria-label="Navigate to Home"
-            type="button"
-            style={{ color: darkMode ? 'white' : 'inherit' }}
           >
             Denzhewrites
           </button>
 
-          {/* Hamburger */}
           <button
             className="navbar-toggler"
             type="button"
-            aria-label="Toggle navigation"
             onClick={toggleSidebar}
+            aria-label={sidebarOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={sidebarOpen}
           >
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          {/* Desktop Nav */}
-          <div className="collapse navbar-collapse d-none d-lg-flex align-items-center justify-content-end gap-3">
-            <ul className="navbar-nav d-flex flex-row gap-3">
-              {navItems.map(([label, path]) => (
-                <li className="nav-item" key={path}>
+          {/* Desktop nav */}
+          <div className="collapse navbar-collapse d-none d-lg-flex justify-content-end">
+            <ul className="navbar-nav">
+              {navItems.map(([label, path, icon]) => (
+                <li key={path} className="nav-item mx-2 d-flex align-items-center">
                   <button
-                    type="button"
-                    className={`nav-button btn ${location.pathname === path ? 'active' : ''}`}
+                    className={`btn nav-button d-flex align-items-center gap-2 ${location.pathname === path ? 'fw-bold active' : ''}`}
                     onClick={() => navigate(path)}
                     aria-current={location.pathname === path ? 'page' : undefined}
+                    type="button"
                   >
-                    {label}
+                    <i className={`bi ${icon}`} aria-hidden="true"></i>
+                    <span>{label}</span>
                   </button>
                 </li>
               ))}
             </ul>
-
-            <button
-              className="btn btn-outline-light ms-3"
-              onClick={toggleDarkMode}
-              aria-label="Toggle dark mode"
-              type="button"
-            >
-              {darkMode ? (
-                <>
-                  <i className="bi bi-sun me-1"></i> Light
-                </>
-              ) : (
-                <>
-                  <i className="bi bi-moon me-1"></i> Dark
-                </>
-              )}
-            </button>
           </div>
         </div>
       </nav>
 
-      {/* Sidebar */}
-      <div className={`custom-sidebar ${sidebarOpen ? 'open' : ''}`}>
-        <ul className="list-unstyled px-3">
-          {navItems.map(([label, path]) => (
-            <li key={path} className="my-3">
+      {/* Sidebar for mobile */}
+      <nav
+        className={`custom-sidebar ${sidebarOpen ? 'open' : ''}`}
+        aria-hidden={!sidebarOpen}
+        aria-label="Mobile navigation sidebar"
+      >
+        <ul>
+          {navItems.map(([label, path, icon]) => (
+            <li key={path}>
               <button
-                className="nav-button text-white fs-5 fw-semibold text-start w-100"
-                type="button"
                 onClick={() => handleNavigate(path)}
+                className={`d-flex align-items-center gap-2 nav-button ${location.pathname === path ? 'fw-bold active' : ''}`}
                 aria-current={location.pathname === path ? 'page' : undefined}
+                type="button"
               >
-                {label}
+                <i className={`bi ${icon}`} aria-hidden="true"></i>
+                <span>{label}</span>
               </button>
             </li>
           ))}
         </ul>
-
-        {/* Sidebar dark mode toggle */}
-        <button
-          className="sidebar-toggle-theme mt-auto ms-3 mb-3"
-          onClick={toggleDarkMode}
-          type="button"
-        >
-          {darkMode ? (
-            <>
-              <i className="bi bi-sun me-2"></i> Light Mode
-            </>
-          ) : (
-            <>
-              <i className="bi bi-moon me-2"></i> Dark Mode
-            </>
-          )}
-        </button>
-      </div>
+      </nav>
 
       {/* Backdrop */}
-      {sidebarOpen && <div className="sidebar-backdrop" onClick={closeSidebar}></div>}
+      {sidebarOpen && (
+        <div
+          className="sidebar-backdrop"
+          onClick={closeSidebar}
+          tabIndex={-1}
+          aria-hidden="true"
+        />
+      )}
     </>
   );
 }

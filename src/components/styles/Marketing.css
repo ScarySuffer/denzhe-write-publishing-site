@@ -1,13 +1,14 @@
 .marketing {
-  background: var(--box-bg, #fff);
-  padding: 40px 20px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-  color: var(--text-color, #333);
+  background: #1a1a1a !important;  /* dark background */
+  padding: 40px 20px !important;
+  margin-bottom: 20px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05) !important; /* subtle white glow */
+  color: #ddd !important; /* light text */
 }
 
 .marketing ul {
-  list-style: disc;
-  padding-left: 1.5rem;
+  list-style: disc !important;
+  padding-left: 1.5rem !important;
+  color: #ccc !important; /* lighter text for list */
 }

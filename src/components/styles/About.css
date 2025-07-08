@@ -1,54 +1,68 @@
-/* About.css */
-
-section.about {
-  margin: 0;
-  padding: 0;
-  display: block;
+/* Global dark background and light text */
+html, body, #root {
+  background-color: #121212 !important;
+  color: #eee !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
 }
 
-.about {
-  padding: 40px;
-  max-width: 900px;
-  margin: 0 auto;
-  background-color: #fff;
-  color: #222;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  transition: background-color 0.3s ease, color 0.3s ease;
+/* Ensure no white bg or text color resets in .about and its children */
+.about, .about * {
+  background-color: transparent !important;
+  color: inherit !important;
 }
 
-.about h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+/* Founder section */
+.founder-section {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 24px !important;
+  align-items: center !important;
+  margin-top: 40px !important;
+  padding: 20px !important;
+  background-color: #121212 !important; /* dark background */
+  border-radius: 12px !important;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.05) !important; /* subtle white glow */
+  color: #eee !important; /* light text */
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
 }
 
-.about p,
-.about ul {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 15px;
+.founder-img {
+  width: 100% !important;
+  max-width: 280px !important;
+  height: auto !important;
+  border-radius: 12px !important;
+  object-fit: cover !important;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1) !important;
+  transition: transform 0.3s ease !important;
 }
 
-.about ul li {
-  margin-bottom: 8px;
+.founder-img:hover {
+  transform: scale(1.03) !important;
 }
 
-/* Dark mode overrides */
-body.dark-mode .about {
-  background-color: #1a1a1a;
-  color: #eee;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+.founder-section div {
+  max-width: 600px !important;
+  text-align: justify !important;
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  color: #eee !important; /* light text */
 }
 
-body.dark-mode .about h2 {
-  color: #fff;
-}
+@media (min-width: 768px) {
+  .founder-section {
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    padding: 30px !important;
+  }
 
-body.dark-mode .about p,
-body.dark-mode .about ul {
-  color: #ccc;
-}
-
-body.dark-mode .about ul li {
-  color: #bbb;
+  .founder-img {
+    margin-right: 30px !important;
+  }
 }

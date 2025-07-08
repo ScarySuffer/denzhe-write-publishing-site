@@ -1,49 +1,17 @@
-/* Base navbar styles */
+/* === NAVBAR === */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #333333;
+  background: #333;
   padding: 0 1rem;
   height: 60px;
-  color: white;
+  color: rgb(17, 11, 11);
   position: relative;
   z-index: 1001;
 }
 
-/* Nav links as buttons */
-.nav-links li a {
-  color: #222;
-  font-weight: 500;
-  padding: 8px 16px;
-  background-color: #eee7e7;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  display: inline-block;
-  user-select: none;
-}
-
-/* Hover and focus effect */
-.nav-links li a:hover,
-.nav-links li a:focus {
-  background-color: #ccc;
-  color: #571414;
-  text-decoration: none;
-  outline: none;
-  box-shadow: 0 0 5px rgba(87, 20, 20, 0.7);
-}
-
-/* Active link highlight */
-.nav-links li a.active {
-  background-color: #ffd700;
-  color: #333;
-  font-weight: 700;
-  text-decoration: none;
-  box-shadow: 0 0 8px #ffd700;
-}
-
-/* Hamburger */
+/* === HAMBURGER MENU === */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -54,7 +22,7 @@
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: 1100; /* Ensure it's above sidebar */
+  z-index: 1100;
 }
 
 .hamburger span {
@@ -69,170 +37,60 @@
 .hamburger.open span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
-
 .hamburger.open span:nth-child(2) {
   opacity: 0;
 }
-
 .hamburger.open span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Sidebar styles */
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: -250px; /* Hidden off screen */
-  width: 250px;
-  height: 100vh;
-  background: #333333;
-  padding-top: 60px; /* space for navbar */
-  transition: left 0.3s ease;
-  z-index: 1000;
-  overflow-y: auto; /* Scroll if content overflows */
-}
-
-.sidebar.open {
-  left: 0;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.sidebar ul li {
-  margin: 1rem 0;
-  padding-left: 1rem;
-}
-
-.sidebar ul li a {
-  color: #ffa500;
-  font-size: 1.2rem;
-  font-weight: 600;
-  transition: color 0.3s ease, text-decoration 0.3s ease;
-  display: block;
-  user-select: none;
-}
-
-.sidebar ul li a:hover,
-.sidebar ul li a:focus {
-  color: #bbb;
-  text-decoration: underline;
-  outline-offset: 2px;
-  outline: 2px solid #451d1d;
-  border-radius: 4px;
-}
-
-/* Dark mode toggle button */
-.dark-mode-toggle {
-  background: transparent;
-  border: 1px solid white;
-  color: white;
-  padding: 5px 10px;
+/* === DESKTOP NAV BUTTONS === */
+.nav-button {
+  background-color: #f5f5f5;
+  color: #222;          /* slightly darker for better contrast */
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;     /* slightly bolder */
+  border: none;
   cursor: pointer;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  user-select: none;
-  align-self: flex-start;
-  margin: 1rem 1rem 2rem;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.dark-mode-toggle:hover,
-.dark-mode-toggle:focus {
-  background-color: rgba(255, 255, 255, 0.15);
-  outline: none;
+.nav-button:hover,
+.nav-button:focus {
+  background-color: #e2dede;  /* subtle soft gray */
+  color: #8b0000;             /* deep red for hover */
+  box-shadow: 0 0 6px rgba(139, 0, 0, 0.5);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-
-  .hamburger {
-    display: flex;
-  }
+.nav-button.active {
+  background-color: #ffdb4d;  /* warm golden */
+  color: #222;
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(255, 219, 77, 0.7);
 }
 
-/* Light and dark mode body */
-body.light-mode {
-  background-color: #fefefe;
-  color: #333;
-}
-
-body.dark-mode {
-  background-color: #121212;
-  color: #eee;
-}
-
-/* Navbar theme */
-body.light-mode .navbar {
-  background: #333333;
-  color: white;
-}
-
-body.dark-mode .navbar {
-  background: #222;
-  color: #eee;
-}
-
-/* Nav and toggle colors in dark mode */
-body.dark-mode .nav-links li a,
-body.dark-mode .sidebar ul li a,
-body.dark-mode .dark-mode-toggle {
-  color: #eee;
-  border-color: #eee;
-}
-
-body.dark-mode .nav-links li a:hover,
-body.dark-mode .sidebar ul li a:hover,
-body.dark-mode .nav-links li a:focus,
-body.dark-mode .sidebar ul li a:focus {
-  color: #aaddff;
-  text-decoration: underline;
-  outline-color: #aaddff;
-}
-
-/* Sidebar theme in dark mode */
-body.dark-mode .sidebar {
-  background: #222;
-}
-
-body.dark-mode .hamburger span {
-  background: #eee;
-}
-
-body.light-mode .dark-mode-toggle {
-  border-color: white;
-  color: white;
-}
-
-body.dark-mode .dark-mode-toggle {
-  border-color: #eee;
-  color: #eee;
-}
-
-/* Custom sidebar */
+/* === SIDEBAR (LEFT SLIDE-IN) === */
 .custom-sidebar {
   position: fixed;
   top: 0;
-  left: -250px;
-  width: 220px;
+  left: 0;
+  width: 16rem;
   height: 100vh;
-  background-color: #333333;
-  padding-top: 60px;
-  display: flex;
-  flex-direction: column;
-  transition: left 0.3s ease;
-  z-index: 1050;
+  background-color: #333;
+  padding: 60px 20px 20px;
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.4s ease;
+  z-index: 1040;
   overflow-y: auto;
+  pointer-events: none;
 }
 
 .custom-sidebar.open {
-  left: 0;
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .custom-sidebar ul {
@@ -245,26 +103,39 @@ body.dark-mode .dark-mode-toggle {
   margin: 20px 0;
 }
 
-.custom-sidebar ul li a {
-  color: rgb(118, 75, 75);
+.custom-sidebar ul li button {
+  background: transparent;
+  border: none;
+  color: #ffa500;
   font-weight: bold;
   font-size: 1.1rem;
-  text-decoration: none;
-  display: block;
   padding: 8px 16px;
+  width: 100%;
+  text-align: left;
   border-radius: 6px;
   user-select: none;
   transition: background-color 0.3s ease, color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
-.custom-sidebar ul li a:hover,
-.custom-sidebar ul li a:focus {
+.custom-sidebar ul li button:hover,
+.custom-sidebar ul li button:focus {
   text-decoration: underline;
   background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
   outline: none;
 }
 
-/* Backdrop */
+/* Desktop nav buttons with icons */
+.nav-button i {
+  font-size: 1.2rem;
+  line-height: 1;
+  color: inherit;
+}
+
+/* === SIDEBAR BACKDROP === */
 .sidebar-backdrop {
   position: fixed;
   top: 0;
@@ -272,8 +143,18 @@ body.dark-mode .dark-mode-toggle {
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.4);
-  z-index: 1049;
-  cursor: pointer;
+  z-index: 1039;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 991px) {
+  .nav-button {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
 }
 
 @media (min-width: 992px) {
@@ -283,66 +164,43 @@ body.dark-mode .dark-mode-toggle {
   }
 }
 
-/* Sidebar toggle in mobile */
-.sidebar-toggle-theme {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: transparent;
-  border: 1px solid white;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 4px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  user-select: none;
+/* === DARK MODE === */
+body.dark-mode .navbar {
+  background-color: #222;
+  color: #eee;
 }
 
-.sidebar-toggle-theme:hover,
-.sidebar-toggle-theme:focus {
-  background: rgba(255, 255, 255, 0.1);
-  outline: none;
+body.dark-mode .nav-button {
+  background-color: #2b2b2b;
+  color: #eee;
+}
+
+body.dark-mode .nav-button:hover,
+body.dark-mode .nav-button:focus {
+  background-color: #444;
+  color: #ffd700;
+  box-shadow: 0 0 6px rgba(255, 215, 0, 0.4);
+}
+
+body.dark-mode .nav-button.active {
+  background-color: #ffd700;
+  color: #222;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
 }
 
 body.dark-mode .custom-sidebar {
   background-color: #222;
 }
 
-body.dark-mode .sidebar-toggle-theme {
-  border-color: #eee;
-  color: #eee;
+body.dark-mode .custom-sidebar ul li button {
+  color: #ffd700;
 }
 
-body.light-mode .sidebar-toggle-theme {
-  border-color: white;
-  color: white;
-}
-.custom-sidebar {
-  transition: transform 0.3s ease;
-  transform: translateX(-100%);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 16rem;
-  height: 100vh;
-  z-index: 1040;
-  overflow-y: auto;
+body.dark-mode .custom-sidebar ul li button:hover {
+  color: #fff;
 }
 
-.custom-sidebar.open {
-  transform: translateX(0);
-}
-
-/* On larger screens show sidebar always */
-@media (min-width: 992px) {
-  .custom-sidebar {
-    position: static;
-    transform: none !important;
-    height: auto;
-    width: auto;
-  }
+body.dark-mode .hamburger span {
+  background: #eee;
 }

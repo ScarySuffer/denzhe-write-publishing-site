@@ -1,37 +1,21 @@
-/* Light mode variables */
-body.light-mode {
-  --bg-color: #fefefe;
-  --text-color: #333;
-  --link-color: #0055aa;
-  --heading-color: #1a1a1a;
-  --footer-bg: #111;
-  --footer-text: #fff;
-
-  background-color: var(--bg-color);
-  color: var(--text-color);
-}
-
-/* Dark mode variables */
-body.dark-mode {
-  --bg-color: #121212;
-  --text-color: #eee;
-  --link-color: #bb86fc;
-  --heading-color: #ddd;
-  --footer-bg: #000;
-  --footer-text: #eee;
-
-  background-color: var(--bg-color);
-  color: var(--text-color);
-}
-
-/* Global styles using variables */
+/* Dark mode variables set globally */
 body {
+  --bg-color: #000;         /* pure black background */
+  --text-color: #fff;       /* pure white text */
+  --link-color: #fff;       /* white links */
+  --heading-color: #fff;    /* white headings */
+  --footer-bg: #111;        /* very dark footer background */
+  --footer-text: #eee;      /* light footer text */
+
+  background-color: var(--bg-color);
+  color: var(--text-color);
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Links */
 a {
   color: var(--link-color);
   text-decoration: none;
@@ -41,10 +25,12 @@ a:hover {
   text-decoration: underline;
 }
 
-h1, h2 {
+/* Headings */
+h1, h2, h3, h4 {
   color: var(--heading-color);
 }
 
+/* Footer */
 footer {
   background-color: var(--footer-bg);
   color: var(--footer-text);
@@ -52,7 +38,7 @@ footer {
   text-align: center;
 }
 
-/* Additional reusable styles */
+/* Sections and containers */
 section {
   max-width: 900px;
   margin: 0 auto 2rem auto;
@@ -61,12 +47,10 @@ section {
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-body.light-mode {
-  --box-bg: #fff;
-  --text-color: #333;
-}
 
-body.dark-mode {
-  --box-bg: #1a1a1a;
-  --text-color: #ddd;
+/* Ensure images are untouched */
+img {
+  filter: none !important;
+  color: initial !important;
+  background-color: transparent !important;
 }
