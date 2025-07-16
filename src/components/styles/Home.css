@@ -5,18 +5,32 @@
   margin: 0 auto;
   padding: 40px 20px;
   text-align: center;
-  color: #333; /* base text color (mostly for fallback) */
+  color: #333;
 }
 
+.hero-image-wrapper {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+/* Allow image to scale properly on all screen sizes */
 .hero-image {
   width: 100%;
   height: auto;
-  max-height: 75vh;
-  object-fit: cover;
-  border-radius: 12px;
+  object-fit: contain; /* prevents cropping on portrait phones */
+  filter: brightness(1.1);
   display: block;
-  margin-bottom: 30px;
-  filter: brightness(1.1); /* Lighten image by 10% */
+  border-radius: 12px;
+}
+
+/* On tablets/desktops, allow height restriction */
+@media (min-width: 769px) {
+  .hero-image {
+    max-height: 75vh;
+    object-fit: cover; /* fill container nicely */
+  }
 }
 
 .hero-text {
@@ -24,14 +38,14 @@
   margin: 0 auto 60px auto;
   padding: 0 20px;
   text-align: center;
-  color: #fffcfc; /* very light pinkish-white */
+  color: #fffcfc;
 }
 
 .hero-text h1 {
   font-size: 3rem;
   margin-bottom: 15px;
   font-weight: 700;
-  color: #fffbfb; /* near white, subtle pink tint */
+  color: #fffbfb;
   line-height: 1.1;
 }
 
@@ -39,7 +53,7 @@
   font-size: 1.4rem;
   margin-bottom: 30px;
   font-weight: 500;
-  color: #d28d8d; /* muted warm pink */
+  color: #d28d8d;
   letter-spacing: 0.02em;
 }
 
@@ -82,16 +96,4 @@
     padding: 12px 28px;
     font-size: 1.1rem;
   }
-}
-/* Fade-in base styles */
-.fade-in-section {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  will-change: opacity, transform;
-}
-
-.fade-in-section.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
