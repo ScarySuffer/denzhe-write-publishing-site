@@ -132,3 +132,11 @@
     padding: 10px 24px;
   }
 }
+/* Fix for small screens - prevent cropping on mobile */
+@media (max-width: 767px) {
+  .hero-image {
+    object-fit: contain !important;
+    height: auto !important;
+    max-height: 40vh;
+  }
+}
