@@ -32,8 +32,8 @@ export default function Home() {
   return (
     <>
       <div className="fade-in-section"><Hero /></div>
-      <div className="fade-in-section"><About /></div>
       <div className="fade-in-section"><Services /></div>
+      <div className="fade-in-section"><About /></div>
       <div className="fade-in-section"><Journey /></div>
       <div className="fade-in-section"><Contact /></div>
     </>

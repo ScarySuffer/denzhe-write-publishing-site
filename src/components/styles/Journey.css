@@ -1,4 +1,107 @@
-/* Keyframes for heartbeat */
+/* Fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.journey {
+  background: #1e1e1e !important;
+  color: #eee !important;
+  padding: 50px 25px !important;
+  border-radius: 12px !important;
+  margin-bottom: 40px !important;
+  max-width: 1000px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.05) !important;
+  transition: background 0.4s ease, color 0.4s ease, box-shadow 0.3s ease !important;
+  animation: fadeInUp 1s ease-out;
+}
+
+/* Heading */
+.journey h2 {
+  color: #f2f2f2 !important;
+  text-align: center !important;
+  margin-bottom: 30px !important;
+  font-size: 2rem !important;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+/* Stepper list */
+.journey ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+}
+
+.journey ul li {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 15px !important;
+  margin-bottom: 1.5rem !important;
+  transition: transform 0.3s ease;
+  border-left: 4px solid #6c63ff;
+  padding-left: 15px;
+  animation: fadeInUp 1s ease-out forwards;
+  opacity: 0;
+  animation-delay: 0.3s;
+}
+
+/* Add staggered delay for each li (optional) */
+.journey ul li:nth-child(1) { animation-delay: 0.3s; }
+.journey ul li:nth-child(2) { animation-delay: 0.5s; }
+.journey ul li:nth-child(3) { animation-delay: 0.7s; }
+.journey ul li:nth-child(4) { animation-delay: 0.9s; }
+.journey ul li:nth-child(5) { animation-delay: 1.1s; }
+
+.journey ul li:hover {
+  transform: scale(1.02);
+}
+
+/* Icon */
+.icon {
+  font-size: 24px;
+  color: #6c63ff;
+  min-width: 30px;
+  margin-top: 4px;
+}
+
+/* Text */
+.step-info, .step-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.step-info p, .journey ul li p {
+  margin: 0 !important;
+  font-size: 1.1rem !important;
+  line-height: 1.6 !important;
+  color: #eee !important;
+}
+
+/* Image */
+.step-img, .step-content img {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.6s ease, filter 0.4s ease;
+}
+
+.step-content img:hover, .step-img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* Heartbeat animation */
 @keyframes heartbeat {
   0%, 100% {
     transform: scale(1);
@@ -17,62 +120,35 @@
   }
 }
 
-/* Journey container */
-.journey {
-  background: #1e1e1e !important;  /* dark background */
-  color: #eee !important;           /* light text */
-  padding: 50px 25px !important;
-  border-radius: 12px !important;
-  margin-bottom: 40px !important;
-  max-width: 1000px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.05) !important; /* subtle white glow */
-  transition: background 0.4s ease, color 0.4s ease, box-shadow 0.3s ease !important;
+.icon-image {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  animation: heartbeat 1.8s infinite ease-in-out;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Heading */
-.journey h2 {
-  color: #f2f2f2 !important;
-  text-align: center !important;
-  margin-bottom: 30px !important;
-  font-size: 2rem !important;
+.icon-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-/* Stepper list */
-.journey ul {
-  list-style: none !important;
-  padding-left: 0 !important;
-}
+/* Responsive */
+@media (max-width: 600px) {
+  .journey ul li {
+    flex-direction: column;
+    align-items: center;
+  }
 
-.journey ul li {
-  display: flex !important;
-  align-items: flex-start !important;
-  gap: 15px !important;
-  margin-bottom: 1.5rem !important;
-}
+  .step-content {
+    align-items: center;
+    text-align: center;
+  }
 
-/* Icon circle with heartbeat animation */
-.journey ul li .icon {
-  flex-shrink: 0 !important;
-  background-color: #ffd700 !important; /* golden accent for dark bg */
-  color: #222 !important;
-  border-radius: 50% !important;
-  width: 36px !important;
-  height: 36px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  font-size: 1.1rem !important;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15) !important;
-  animation: heartbeat 1.8s infinite !important;
-  animation-timing-function: ease-in-out !important;
-}
-
-/* Step text */
-.journey ul li p {
-  margin: 0 !important;
-  font-size: 1.1rem !important;
-  line-height: 1.6 !important;
-  color: #eee !important;
+  .step-content img {
+    max-width: 100%;
+  }
 }

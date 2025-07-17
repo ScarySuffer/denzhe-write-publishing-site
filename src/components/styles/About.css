@@ -1,7 +1,19 @@
-/* Global dark background and light text */
+/* Fade-in keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Global dark theme base */
 html, body, #root {
   background-color: #121212 !important;
-  color: #eee !important;
+  color: #f1f1f1 !important;
   height: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
@@ -11,26 +23,75 @@ html, body, #root {
   -moz-osx-font-smoothing: grayscale !important;
 }
 
-/* Ensure no white bg or text color resets in .about and its children */
+/* Ensure .about and children follow dark theme */
 .about, .about * {
   background-color: transparent !important;
   color: inherit !important;
 }
 
-/* Founder section */
+/* Page block styling */
+.about {
+  padding: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  /* Fade-in animation */
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.about-block {
+  margin-bottom: 40px;
+
+  /* Optional: stagger fade-in */
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.about-block:nth-child(1) {
+  animation-delay: 0.4s;
+}
+
+.about-block:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.about-block:nth-child(3) {
+  animation-delay: 0.8s;
+}
+
+/* About Section image */
+.about-img {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  /* Fade-in */
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 1s;
+}
+
+/* Founder Section Styling */
 .founder-section {
   display: flex !important;
   flex-direction: column !important;
   gap: 24px !important;
   align-items: center !important;
   margin-top: 40px !important;
-  padding: 20px !important;
-  background-color: #121212 !important; /* dark background */
+  padding: 24px !important;
+  background-color: #1a1a1a !important;
   border-radius: 12px !important;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.05) !important; /* subtle white glow */
-  color: #eee !important; /* light text */
-  -webkit-font-smoothing: antialiased !important;
-  -moz-osx-font-smoothing: grayscale !important;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.04) !important;
+  color: #f1f1f1 !important;
+
+  /* Fade-in */
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 1.2s;
 }
 
 .founder-img {
@@ -39,30 +100,75 @@ html, body, #root {
   height: auto !important;
   border-radius: 12px !important;
   object-fit: cover !important;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.05) !important;
   transition: transform 0.3s ease !important;
+  border: 1px solid #444 !important;
 }
 
 .founder-img:hover {
-  transform: scale(1.03) !important;
+  transform: scale(1.05);
+  filter: brightness(1.1);
+  cursor: pointer;
+}
+
+/* Hover effect added for founder-img */
+.founder-img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+  cursor: pointer;
 }
 
 .founder-section div {
   max-width: 600px !important;
   text-align: justify !important;
   font-size: 1rem !important;
-  line-height: 1.6 !important;
-  color: #eee !important; /* light text */
+  line-height: 1.7 !important;
+  color: #ddd !important;
 }
 
 @media (min-width: 768px) {
   .founder-section {
     flex-direction: row !important;
     align-items: flex-start !important;
-    padding: 30px !important;
+    padding: 32px !important;
   }
 
   .founder-img {
-    margin-right: 30px !important;
+    margin-right: 32px !important;
   }
+}
+
+/* Core Values Image Gallery */
+.core-values-gallery {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+
+  /* Fade-in */
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 1.4s;
+}
+
+.core-values-gallery img {
+  width: 100%;
+  max-width: 180px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.core-values-gallery img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+  cursor: pointer;
+}
+
+/* Also add hover for about-img */
+.about-img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+  cursor: pointer;
 }

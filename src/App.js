@@ -9,6 +9,7 @@ import Contact from './components/Contact';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import ComingSoon from './components/ComingSoon';
 
 function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
@@ -31,7 +32,9 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/journey" element={<Journey />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/coming-soon" element={<ComingSoon />} />
       </Routes>
+
       
       <Footer />
     </Router>

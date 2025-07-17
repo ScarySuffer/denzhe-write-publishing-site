@@ -22,6 +22,7 @@ export default function Navbar() {
     ['Services', '/services', 'bi-briefcase-fill'],
     ['Journey', '/journey', 'bi-map-fill'],
     ['Contact', '/contact', 'bi-envelope-fill'],
+    ['Coming Soon', '/coming-soon', 'bi-hourglass-split'],  // Added Coming Soon page
   ];
 
   return (

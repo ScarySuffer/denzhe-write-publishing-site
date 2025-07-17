@@ -5,13 +5,10 @@ export default function About() {
     const birthDate = new Date('2003-01-26');
     const today = new Date();
     let age = today.getFullYear() - birthDate.getFullYear();
-
-    // Adjust if the birthday hasn't occurred yet this year
     const thisYearBirthday = new Date(today.getFullYear(), birthDate.getMonth(), birthDate.getDate());
     if (today < thisYearBirthday) {
       age--;
     }
-
     return age;
   };
 
@@ -21,29 +18,45 @@ export default function About() {
     <div className="about">
       <h2>About Us</h2>
 
-      <p><strong>Founder:</strong> Denzhe Precious Mavhungu</p>
-      <p>Denzhewrites Publishers is a youth-focused, home-based publishing company.</p>
+      <div className="about-block">
+        <p><strong>Founder:</strong> Denzhe Precious Mavhungu</p>
+        <p>Denzhewrites Publishers is a youth-focused, home-based publishing company.</p>
+        <img src="/assets/starting-point.jpg" alt="Starting Point" className="about-img" />
+      </div>
 
-      <h3>Mission</h3>
-      <p>
-        Empowering young voices to share their stories with the world through accessible,
-        creative, and personalized publishing services.
-      </p>
+      <div className="about-block">
+        <h3>Mission</h3>
+        <p>
+          Empowering young voices to share their stories with the world through accessible,
+          creative, and personalized publishing services.
+        </p>
+        <img src="/assets/light-bulbs.jpg" alt="Creative Ideas" className="about-img" />
+      </div>
 
-      <h3>Vision</h3>
-      <p>
-        To become Africa’s leading youth-focused independent publisher, empowering new voices and
-        breaking barriers in storytelling and publishing.
-      </p>
+      <div className="about-block">
+        <h3>Vision</h3>
+        <p>
+          To become Africa’s leading youth-focused independent publisher, empowering new voices and
+          breaking barriers in storytelling and publishing.
+        </p>
+        <img src="/assets/eye-vision.jpg" alt="Vision & Focus" className="about-img" />
+      </div>
 
-      <h3>Core Values</h3>
-      <ul>
-        <li><strong>Creativity:</strong> Nurturing original storytelling and bold ideas.</li>
-        <li><strong>Youth Empowerment:</strong> Championing young authors to find their unique voice.</li>
-        <li><strong>Integrity:</strong> Delivering honest, transparent, and reliable services.</li>
-        <li><strong>Community:</strong> Building supportive connections between authors, readers, and creatives.</li>
-        <li><strong>Excellence:</strong> Committing to quality in every book published.</li>
-      </ul>
+      <div className="about-block">
+        <h3>Core Values</h3>
+        <ul>
+          <li><strong>Creativity:</strong> Nurturing original storytelling and bold ideas.</li>
+          <li><strong>Youth Empowerment:</strong> Championing young authors to find their unique voice.</li>
+          <li><strong>Integrity:</strong> Delivering honest, transparent, and reliable services.</li>
+          <li><strong>Community:</strong> Building supportive connections between authors, readers, and creatives.</li>
+          <li><strong>Excellence:</strong> Committing to quality in every book published.</li>
+        </ul>
+        <div className="core-values-gallery">
+          <img src="/assets/author.png" alt="Young Author" />
+          <img src="/assets/books-heart.jpg" alt="Book Passion" />
+          <img src="/assets/valentines-day-background-Book.jpg" alt="Valentines Package" />
+        </div>
+      </div>
 
       <h3>About the Founder</h3>
 
@@ -53,7 +66,6 @@ export default function About() {
           alt="Founder Denzhe Mavhungu"
           className="founder-img"
         />
-
         <div>
           <p>
             Denzhe Precious Mavhungu, founder of Denzhe Publishers, is a {age}-year-old author from Makwarela, South Africa,
